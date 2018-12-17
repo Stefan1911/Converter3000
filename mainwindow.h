@@ -19,6 +19,7 @@ private:
     void disableBin();
     void disableOct();
     void disableDec();
+    void connectAll();
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -27,7 +28,6 @@ public slots:
     void onNmberChanged();
     void onNumBaseChanged();
 private slots:
-    void on_pushButton_clicked();
     void onBtnClicked();
 
 };

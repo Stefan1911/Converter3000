@@ -7,6 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     this->mozak = new ConvertLogic(nullptr,this);
     ui->setupUi(this);
+    this->connectAll();
+}
+void MainWindow::connectAll(){
     connect(this->mozak,SIGNAL(numChanged()),this,SLOT(onNmberChanged()));
     connect(this->ui->radioDEC,SIGNAL(toggled(bool)),this,SLOT(onNumBaseChanged()));
     connect(this->ui->radioHEX,SIGNAL(toggled(bool)),this,SLOT(onNumBaseChanged()));
@@ -34,13 +37,11 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(this->ui->buttonClear,SIGNAL(clicked()),this,SLOT(onBtnClicked()));
      connect(this->ui->buttonLeft,SIGNAL(clicked()),this,SLOT(onBtnClicked()));
      connect(this->ui->buttonRight,SIGNAL(clicked()),this,SLOT(onBtnClicked()));
-
-
 }
 void MainWindow::onBtnClicked(){
-    QPushButton *b=(QPushButton*)sender();
-    QString str=b->text();
-    mozak->add(str);
+    QPushButton *b = (QPushButton*)sender();
+    QString str = b->text();
+    mozak->doCommand(str);
 
 }
 
@@ -53,10 +54,7 @@ MainWindow::~MainWindow()
 void MainWindow::onNmberChanged()
 {
     QString conValue;
-    QString trueValue;
     conValue = QString::number(this->mozak->getValue(),this->mozak->getBase());
-    trueValue = QString::number(this->mozak->getValue(),10);
-    ui->truValueLabel->setText(trueValue);
     ui->conValueLabel->setText(conValue);
 }
 
@@ -76,8 +74,6 @@ void MainWindow::onNumBaseChanged(){
         if(temp=="BIN")
             disableBin();
     }
-
-
 };
 void MainWindow::enableAll(){
     ui->button0->setEnabled(true);
@@ -122,11 +118,4 @@ void MainWindow::disableDec(){
     ui->buttond->setEnabled(false);
     ui->buttone->setEnabled(false);
     ui->buttonf->setEnabled(false);
-}
-
-
-void MainWindow::on_pushButton_clicked()
-{
-    //this->ui->conValueLabel->setText("9");
-    this->mozak->add("1");
 }

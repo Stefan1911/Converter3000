@@ -42,21 +42,7 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="valueConteiner" stretch="40,10,40">
-      <item>
-       <widget class="QLabel" name="truValueLabel">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>---&gt;</string>
-        </property>
-       </widget>
-      </item>
+     <layout class="QHBoxLayout" name="valueConteiner" stretch="40">
       <item>
        <widget class="QLabel" name="conValueLabel">
         <property name="font">
@@ -64,8 +50,14 @@
           <pointsize>16</pointsize>
          </font>
         </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -128,7 +120,15 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3"/>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QPushButton" name="buttonClear">

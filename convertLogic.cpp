@@ -9,10 +9,6 @@ ConvertLogic::ConvertLogic(QObject *parent,QMainWindow* window) : QObject(parent
 ConvertLogic::~ConvertLogic(){
     delete window;
 }
-void ConvertLogic::update(){
-
-}
-
 long ConvertLogic::getValue(){
     return  this->value;
 }
@@ -20,7 +16,7 @@ numBase ConvertLogic::getBase(){
     return this->base;
 }
 
-void ConvertLogic::add(QString value){
+void ConvertLogic::doCommand(QString value){
     if(value=="CLEAR")
         this->value=0;
     else if(value=="-->")

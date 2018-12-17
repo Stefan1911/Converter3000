@@ -28,9 +28,6 @@ public:
 signals:
     void numBaseChanged(numBase);
     void numChanged();
-public slots:
-    void update(void);
-    void add(QString);
 };
 
 #endif // CONVERTLOGIC_H
